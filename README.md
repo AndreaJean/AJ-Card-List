@@ -4,6 +4,7 @@
 
 ## 引用
 ```html
+<link rel="stylesheet" type="text/css" href="css/AJ-Pic-List.css">
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/AJ-Pic-List.js"></script>
 ```
