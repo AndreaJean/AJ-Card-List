@@ -1,4 +1,4 @@
-# AJ-Table
+# AJ-Pic-List
 
 基于js，jquery的列表插件，卡片结构，类似购物网站搜索结果的图片列表。
 
@@ -14,7 +14,7 @@
 var myList = new AjPicList(opt) //定义列表对象
 ```
 ```JavaScript
-myTable.init(thData, tdData) //生成列表
+myList.init(thData, tdData) //生成列表
 ```
 
 ## 参数
