@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <title></title>
   <link rel="stylesheet" type="text/css" href="css/AJ-Pic-List.css">
-  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_822251_bq59zt1o3zh.css">
 </head>
 
 <body>
@@ -14,10 +14,13 @@
   </div>
 </body>
 </html>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="data/data.js"></script>
 <script type="text/javascript" src="js/AJ-Pic-List.js"></script>
 <script type="text/javascript">
 window.onload = function () {
-
+  var myList = new AjPicList(opt) //定义列表对象
+  myList.init(rowSet, rowData) //生成列表
 }
 </script>
 
