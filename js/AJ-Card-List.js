@@ -1,4 +1,4 @@
-let AjPicList = function (options) {
+let AjCardList = function (options) {
   let newObj = {
   }
   // 默认设置
