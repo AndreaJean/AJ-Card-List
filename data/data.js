@@ -4,17 +4,17 @@ let testBtn = [
   { key: 'delete', label: '删除', iconClass: 'iconfont icon-shanchu' }
 ]
 let rowSet = [
+  { key: 'photo', label: '照片', type: 'img', width: '10%', align: 'center', imgW: '', imgH: '80px' },
   { key: 'no', label: '序号', type: 'no', width: '20%', color: '', align: 'center' },
   { key: 'name', label: '姓名', type: 'text', width: '10%', color: 'red', align: 'left', sort: true, isBreak: false },
   { key: 'age', label: '年龄', type: 'text', width: '20%', color: '', align: 'left', isEdit: true, sort: true },
   { key: 'nationality', label: '国籍', type: 'text', width: '20%', color: '', align: 'left' },
   { key: 'marriage', label: '婚否', type: 'switch', width: '10%', align: 'center', trueVal: '1', trueLabel: '已婚', falseVal: '2', falseLabel: '未婚' },
   { key: 'sex', label: '性别性别', type: 'text', width: '10%', color: '', align: 'center', mergeCell: true },
-  { key: 'photo', label: '照片', type: 'img', width: '10%', align: 'center', imgW: '', imgH: '80px' },
   // {key: 'custom1', label: '标签', type: 'html', width: '', align: 'left', htmlCode: '<h2>自定义HTML片断</h2>'},
   { key: 'action', label: '操作', type: 'button', width: '30%', align: 'center', btns: testBtn }
 ]
-let rowData = [
+let cardData = [
   { name: '唐僧', age: '14', nationality: '大唐', sex: '女', marriage: '1', photo: 'https://pic.xiami.net/images/artistlogo/60/13751627012360.jpg?x-oss-process=image/resize,s_370,m_fill/quality,q_80' },
   { name: '孙悟空孙悟空孙悟空孙悟空', age: '', nationality: '花果山', sex: '男', marriage: '2', photo: 'https://pic.xiami.net/images/artistpic/24/23424/1247039605_405E.jpg?x-oss-process=image/resize,s_370,m_fill/quality,q_80' },
   { name: '观音', age: '54', nationality: '西天', sex: '女', marriage: '1', photo: 'https://pic.xiami.net/images/artistpic/24/23424/1247039645_Qy82.jpg?x-oss-process=image/resize,s_370,m_fill/quality,q_80' },

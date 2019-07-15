@@ -15,7 +15,7 @@
 var myList = new AjCardList(opt) //定义列表对象
 ```
 ```JavaScript
-myList.init(rowSet, rowData) //生成列表
+myList.init(rowSet, cardData) //生成列表
 ```
 
 ## 参数
@@ -36,5 +36,5 @@ var rowSet = []
 
 结构为对象数组，示例：
 ```JavaScript
-var rowData = []
+var cardData = []
 ```
