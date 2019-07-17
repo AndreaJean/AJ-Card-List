@@ -1,0 +1,82 @@
+.aj-card-box{
+  position: relative;
+  box-sizing: border-box;
+  width:100%;
+  font-size: 12px;
+}
+.aj-card-table{
+  position: relative;
+  border-collapse: collapse;
+  width:100%;
+  box-sizing: border-box;
+  border: none;
+  text-decoration: inherit;
+}
+.aj-card-table>tbody>tr>td {
+  position: relative;
+  padding: 0;
+  margin:0;
+}
+.aj-card-cell{
+  width:100%;
+  height:100%;
+  box-sizing: border-box;
+  padding:10px;
+  border-width:1px;
+  border-style:solid;
+  border-color:#c0c4cc;
+  overflow: hidden;
+}
+.aj-card-block{
+  box-sizing: border-box;
+}
+.aj-card-block.left,.aj-card-block.right{
+  display: inline-block;
+  vertical-align: middle;
+}
+.aj-card-block.block{
+  text-align: center;
+}
+.aj-card-block.block.top{
+  margin-bottom:10px;
+}
+.aj-card-block-img{
+  max-width: 100%;
+  max-height: 100%;
+}
+.aj-card-ul{
+  box-sizing: border-box;
+  list-style: none;
+  padding: 0;
+  margin:0;
+  width:100%;
+}
+.aj-card-ul>li{
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 28px;
+  box-sizing: border-box;
+}
+.aj-card-ul .button-line{
+  line-height: 40px;
+}
+.aj-card-btn {
+  margin-right:10px;
+  padding: 3px 6px;
+  border: 1px solid #2185d0;
+  border-radius: 4px;
+  background: #fff;
+  color: #2185d0;
+  cursor: pointer;
+  outline: none;
+}
+.aj-card-btn:hover {
+  border: 1px solid #409eff;
+  color: #409eff;
+}
+.aj-card-btn-icon {
+  margin-right: 2px;
+  vertical-align: text-bottom;
+}

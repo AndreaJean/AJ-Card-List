@@ -32,7 +32,7 @@ myList.init(rowSet, cardData) //生成列表
 ```JavaScript
 var rowSet = []
 ```
-#### 卡片数据rowData
+#### 卡片数据cardData
 
 结构为对象数组，示例：
 ```JavaScript
