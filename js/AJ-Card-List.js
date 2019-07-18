@@ -325,7 +325,6 @@ let AjCardList = function (options) {
     layout: 'TB', // 图片和内容的分页结构，左右LR，上下TB
     noDataText: '暂无数据',
     customCardClass: '',
-    scrollBarWidth: 0,
     style: {
       bgColor: '',
       borderWidth: '',
