@@ -12,8 +12,8 @@ let rowSet = [
   { key: '', label: '', type: 'button', align: 'right', btns: testBtn }
 ]
 let cardData = [
-  { id: '021917205', name: '城西抢劫案城西抢劫案城西抢劫案', link: 'https://element.eleme.cn/', photo: 'https://pic.xiami.net/images/artistlogo/60/13751627012360.jpg?x-oss-process=image/resize,s_370,m_fill/quality,q_80' },
-  { id: '021917206', name: '城东盗窃案', link: 'http://doc.vue-js.com/v2/guide/', photo: 'https://pic.xiami.net/images/artistpic/24/23424/1247039605_405E.jpg?x-oss-process=image/resize,s_370,m_fill/quality,q_80' },
+  { id: '021917205', name: '城西抢劫案', photo: 'https://pic.xiami.net/images/artistlogo/60/13751627012360.jpg?x-oss-process=image/resize,s_370,m_fill/quality,q_80' },
+  { id: '021917206', name: '城东盗窃案', photo: 'https://pic.xiami.net/images/artistpic/24/23424/1247039605_405E.jpg?x-oss-process=image/resize,s_370,m_fill/quality,q_80' },
   { id: '021917207', name: '声明式渲染', link: 'https://www.xiami.com/', photo: 'https://pic.xiami.net/images/artistpic/24/23424/1247039645_Qy82.jpg?x-oss-process=image/resize,s_370,m_fill/quality,q_80' },
   { id: '021917208', name: '条件与循环', link: 'https://www.ifeng.com/', photo: 'https://pic.xiami.net/images/artistlogo/60/13751627012360.jpg?x-oss-process=image/resize,s_370,m_fill/quality,q_80' },
   { id: '021917209', name: '处理用户输入', link: 'https://github.com/', photo: 'https://pic.xiami.net/images/artistpic/24/23424/1247039605_405E.jpg?x-oss-process=image/resize,s_370,m_fill/quality,q_80' },
