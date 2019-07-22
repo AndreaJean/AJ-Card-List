@@ -92,12 +92,13 @@ let AjCardList = function (options) {
     // 生成卡片
     createCard (item, index) {
       let flag = this.utils.checkNull(this.blockItem)
-      let html = '<div class="aj-card-cell ' + this.option.customCardClass + '" style="' + this.getCardStyle(index) + '" data-index="' + index + '">'
+      let blockStyle = flag ? ('style="text-align:' + (this.blockItem.align || 'center') + ';width:' + this.blockItem.width + ';"') : ''
+      let html = '<div class="aj-card-cell ' + this.option.customCardClass + '" ' + this.getCardStyle(index) + ' data-index="' + index + '">'
       if (this.option.layout === 'TB') {
-        html += flag ? ('<div class="aj-card-block block top ' + this.blockItem.key + '">' + this.addBlockItem('top', item) + '</div>') : ''
+        html += flag ? ('<div class="aj-card-block block top ' + this.blockItem.key + '" ' + blockStyle + '>' + this.addBlockItem(item) + '</div>') : ''
         html += '<div class="aj-card-block bottom">' + this.addContent(item, index) + '</div>'
       } else {
-        html += flag ? ('<div class="aj-card-block block left ' + this.blockItem.key + '">' + this.addBlockItem('left', item) + '</div>') : ''
+        html += flag ? ('<div class="aj-card-block block left ' + this.blockItem.key + '" ' + blockStyle + '>' + this.addBlockItem(item) + '</div>') : ''
         html += '<div class="aj-card-block' + (flag ? ' right' : '') + '">' + this.addContent(item, index) + '</div>'
       }
       html += '</div>'
@@ -112,26 +113,34 @@ let AjCardList = function (options) {
       if (style.shadowColor.length && style.shadowWidth.length) {
         html += 'box-shadow: 0 0 ' + style.shadowWidth + 'px ' + style.shadowColor + ';'
       }
-      return html
+      return 'style="' + html + '"'
     },
     // 添加独立模块
-    addBlockItem (pos, data) {
+    addBlockItem (data) {
       let type = this.blockItem.type
       if (type === 'img') {
         let src = data[this.blockItem.key]
-        let css = 'width:' + (this.blockItem.imgW || '') + ';height:' + (this.blockItem.imgH || '') + ';'
+        let css = 'width:' + (this.blockItem.imgW || '') + ';' +
+                  'height:' + (this.blockItem.imgH || '') + ';'
         let attr = 'class="aj-card-block-img ' + this.blockItem.key + '"' +
                   'src="' + src + '"' +
                   'alt="' + this.blockItem.label + '"' +
                   'style="' + css + '"'
         return '<img ' + attr + ' />'
       }
+      if (type === 'icon') {
+        let src = data[this.blockItem.key]
+        let css = 'font-size:' + this.blockItem.fontSize + 'px;color:' + this.blockItem.color + ';'
+        let attr = 'class="aj-card-block-icon ' + src + ' ' + this.blockItem.key + '"' +
+                  'style="' + css + '"'
+        return '<i ' + attr + '></i>'
+      }
     },
     // 添加其他内容
     addContent (item, index) {
       let html = '<ul class="aj-card-ul">'
       this.rowSet.forEach(row => {
-        html += '<li class="' + row.type + '-line ' + row.key + '" style="' + this.getLineStyle(row, item) + '">'
+        html += '<li class="' + row.type + '-line ' + row.key + '" style="' + this.getLineStyle(row) + '">'
         switch (row.type) {
         case 'html':
           html += row.htmlCode
@@ -154,8 +163,13 @@ let AjCardList = function (options) {
       return html
     },
     // 获取行样式
-    getLineStyle (rowSet, item) {
-      return ''
+    getLineStyle (rowSet) {
+      let style = 'color:' + rowSet.color + ';' +
+                 'text-align:' + rowSet.align + ';' +
+                 'font-size:' + rowSet.fontSize + 'px;' +
+                 'font-weight:' + (rowSet.isBold ? 'bold' : 'nomal') + ';' +
+                 'text-indent:' + rowSet.textIndent + ';'
+      return style
     },
     // 按钮点击事件
     btnClickEvent () {
@@ -171,6 +185,7 @@ let AjCardList = function (options) {
         vm.option.callback.btnClick(obj)
       })
     },
+    // 列表或者父级模块由隐藏变为显示时调整显示效果
     displayListener () {
       let vm = this
       let panel = {}
