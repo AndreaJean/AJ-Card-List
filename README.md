@@ -58,8 +58,8 @@ let rowSet = [
   { key: 'photo', label: '', type: 'img', align: 'center', imgW: '40px', imgH: '80px', isBlock: true, width: '40%', verticleAlign: 'middle' },
   { key: 'logo', label: '', type: 'icon', align: 'left', fontSize: 40, isBlock: true, width: '50px', verticleAlign: 'top', color: 'red' },
   //以上两种独立模块只可二选一，如设置两个独立模块只会有一个生效
-  { key: 'id', label: 'ID：', type: 'text', align: 'left', color: '', isBold: true, textIndent: 0, fontSize: 14 },
-  { key: 'name', label: '名称：', type: 'text', align: 'left', color: '', isBold: true, textIndent: 0, fontSize: 12 },
+  { key: 'id', label: 'ID：', type: 'text', align: 'left', color: '', isBold: true, textIndent: '', fontSize: 14 },
+  { key: 'name', label: '名称：', type: 'text', align: 'left', color: '', isBold: true, textIndent: '1em', fontSize: 12 },
   { key: '', label: '', type: 'html', align: 'left', htmlCode: '<span>自定义HTML片断</span>' },
   { key: '', label: '', type: 'button', align: 'right', btns: testBtn }
 ]
@@ -73,7 +73,7 @@ let testBtn = [
 - type：{String}，内容数据格式，'img'图片，'icon'字体图标，'text'文字，'button'按钮，'html'自定义HTML片断
 - align：{String}，行内容对齐方式
 - color：{String}，文字或图标内容颜色
-- fontSize：{String}，文字或图标内容字号
+- fontSize：{Number/String}，文字或图标内容字号
 - isBold：{Boolean}，文字或图标内容是否加粗，true为加粗
 - textIndent：{String}，文字内容首行缩进，如“15px”，“2em”
 - imgW，imgH：{String}，图片宽、高，格式为"数值+单位"，如"20px"（仅当type为'img'时有效）
