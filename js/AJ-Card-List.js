@@ -78,7 +78,7 @@ let AjCardList = function (options) {
       this.box.append(html)
       this.con = this.box.find('.aj-card-box')
       this.cards = this.box.find('.aj-card-cell')
-      this.btnClickEvent()
+      this.bindEvent()
     },
     // 获取td样式
     getTdStyle (index) {
@@ -93,7 +93,7 @@ let AjCardList = function (options) {
     createCard (item, index) {
       let flag = this.utils.checkNull(this.blockItem)
       let blockStyle = flag ? ('style="text-align:' + (this.blockItem.align || 'center') + ';width:' + this.blockItem.width + ';"') : ''
-      let html = '<div class="aj-card-cell ' + this.option.customCardClass + '" ' + this.getCardStyle(index) + ' data-index="' + index + '">'
+      let html = '<div class="aj-card-cell ' + this.option.customCardClass + (this.option.isCardClick ? ' aj-card-click' : '') + '" ' + this.getCardStyle(index) + ' data-index="' + index + '">'
       if (this.option.layout === 'TB') {
         html += flag ? ('<div class="aj-card-block block top ' + this.blockItem.key + '" ' + blockStyle + '>' + this.addBlockItem(item) + '</div>') : ''
         html += '<div class="aj-card-block bottom">' + this.addContent(item, index) + '</div>'
@@ -112,6 +112,9 @@ let AjCardList = function (options) {
                  'border-color:' + style.borderColor + ';'
       if (style.shadowColor.length && style.shadowWidth.length) {
         html += 'box-shadow: 0 0 ' + style.shadowWidth + 'px ' + style.shadowColor + ';'
+      }
+      if (this.option.isCardClick) {
+        html += 'cursor:pointer;'
       }
       return 'style="' + html + '"'
     },
@@ -140,7 +143,7 @@ let AjCardList = function (options) {
     addContent (item, index) {
       let html = '<ul class="aj-card-ul">'
       this.rowSet.forEach(row => {
-        html += '<li class="' + row.type + '-line ' + row.key + '" style="' + this.getLineStyle(row) + '">'
+        html += '<li class="' + row.type + '-line ' + (row.isClick ? 'aj-text-click ' : '') + row.key + '" row-key="' + row.key + '" data-index="' + index + '" style="' + this.getLineStyle(row) + '">'
         switch (row.type) {
         case 'html':
           html += row.htmlCode
@@ -168,8 +171,40 @@ let AjCardList = function (options) {
                  'text-align:' + rowSet.align + ';' +
                  'font-size:' + rowSet.fontSize + 'px;' +
                  'font-weight:' + (rowSet.isBold ? 'bold' : 'nomal') + ';' +
-                 'text-indent:' + rowSet.textIndent + ';'
+                 'text-indent:' + rowSet.textIndent + ';' +
+                 (rowSet.isUnderline ? 'text-decoration:underline;' : '') +
+                 (rowSet.isClick ? 'cursor:pointer;' : '')
       return style
+    },
+    // ===================================================================
+    // 绑定事件
+    bindEvent () {
+      this.cardClickEvent()
+      this.textClickEvent()
+      this.btnClickEvent()
+    },
+    // 卡片点击事件
+    cardClickEvent () {
+      let vm = this
+      let target = this.box.find('.aj-card-click')
+      target.unbind('click').click(function () {
+        let index = $(this).attr('data-index')
+        vm.option.callback.cardClick(vm.cardData[index])
+      })
+    },
+    // 文字点击事件
+    textClickEvent () {
+      let vm = this
+      let target = this.box.find('.aj-text-click')
+      target.unbind('click').click(function () {
+        let btn = $(this)
+        let index = btn.attr('data-index')
+        let obj = {
+          key: btn.attr('row-key'),
+          data: vm.cardData[index]
+        }
+        vm.option.callback.textClick(obj)
+      })
     },
     // 按钮点击事件
     btnClickEvent () {
@@ -239,9 +274,10 @@ let AjCardList = function (options) {
     adjustLR () {
       if (this.option.layout === 'LR' && this.utils.checkNull(this.blockItem)) {
         let innerW = this.cards.eq(0).width()
-        let leftW = this.blockItem.width.includes('%') ? (innerW * parseInt(this.blockItem.width) / 100) : this.blockItem.width
+        let leftW = this.blockItem.width.includes('%') ? (innerW * parseInt(this.blockItem.width) / 100) : parseInt(this.blockItem.width)
+        let rightW = innerW - leftW - 8
         this.cards.find('.aj-card-block.left').css({ 'width': leftW + 'px', 'vertical-align': this.blockItem.verticleAlign })
-        this.cards.find('.aj-card-block.right').css({ 'width': (innerW - leftW - 8) + 'px', 'vertical-align': this.blockItem.verticleAlign })
+        this.cards.find('.aj-card-block.right').css({ 'width': rightW + 'px', 'vertical-align': this.blockItem.verticleAlign })
       }
     }
   }
@@ -340,6 +376,7 @@ let AjCardList = function (options) {
     layout: 'TB', // 图片和内容的分页结构，左右LR，上下TB
     noDataText: '暂无数据',
     customCardClass: '',
+    isCardClick: false,
     style: {
       bgColor: '',
       borderWidth: '',
@@ -349,6 +386,8 @@ let AjCardList = function (options) {
       padding: ''
     },
     callback: {
+      cardClick: null,
+      textClick: null,
       btnClick: null,
       over: null
     }

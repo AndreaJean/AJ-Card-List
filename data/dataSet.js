@@ -7,7 +7,7 @@ let rowSet = [
   // { key: 'photo', label: '', type: 'img', align: 'center', imgW: '40px', imgH: '80px', isBlock: true, width: '40%', verticleAlign: 'middle' },
   { key: 'logo', label: '', type: 'icon', align: 'left', fontSize: 40, isBlock: true, width: '50px', verticleAlign: 'top', color: 'red' },
   { key: 'id', label: 'ID：', type: 'text', align: 'left', color: 'blue', isBold: true, textIndent: '', fontSize: 14 },
-  { key: 'name', label: '名称：', type: 'text', align: 'left', color: '', isBold: true, textIndent: '1em', fontSize: 12 },
+  { key: 'name', label: '名称：', type: 'text', align: 'left', color: '', isBold: false, textIndent: '1em', fontSize: 12, isClick: true, isUnderline: true },
   // { key: 'link', label: '链接：', type: 'link', src: '', align: 'left', color: '', isBold: true, textIndent: 0, fontSize: 12 },
   { key: '', label: '', type: 'html', align: 'left', htmlCode: '<span>自定义HTML片断</span>' },
   { key: '', label: '', type: 'button', align: 'right', btns: testBtn }
@@ -31,6 +31,7 @@ let opt = {
   layout: 'LR', // 图片和内容的分页结构，左右LR，上下TB
   noDataText: '暂无数据',
   customCardClass: '',
+  isCardClick: true,
   style: {
     bgColor: '',
     borderWidth: '',
@@ -40,6 +41,12 @@ let opt = {
     padding: ''
   },
   callback: {
+    cardClick: function (data) {
+      console.log(data)
+    },
+    textClick: function (data) {
+      console.log(data)
+    },
     btnClick: function (data) {
       console.log(data)
     },

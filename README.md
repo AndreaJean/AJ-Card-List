@@ -33,6 +33,7 @@ myList.init(rowSet, cardData) //生成列表
   layout: 'TB', // 图片和内容的分页结构，左右LR，上下TB
   noDataText: '暂无数据', // 无数据时表身区域的显示内容，支持自定义html片断
   customCardClass: '', // 卡片div的自定义类名
+  isCardClick: false, // 卡片是否可点击
   // 卡片样式
   style: { 
     bgColor: '', // 背景颜色
@@ -44,6 +45,8 @@ myList.init(rowSet, cardData) //生成列表
   },
   // 回调函数
   callback: {
+    cardClick: null, // 卡片点击事件
+    textClick: null, // 文字点击事件
     btnClick: null, // 按钮点击事件
     over: null // 列表加载完成
   }
@@ -59,7 +62,7 @@ let rowSet = [
   { key: 'logo', label: '', type: 'icon', align: 'left', fontSize: 40, isBlock: true, width: '50px', verticleAlign: 'top', color: 'red' },
   //以上两种独立模块只可二选一，如设置两个独立模块只会有一个生效
   { key: 'id', label: 'ID：', type: 'text', align: 'left', color: '', isBold: true, textIndent: '', fontSize: 14 },
-  { key: 'name', label: '名称：', type: 'text', align: 'left', color: '', isBold: true, textIndent: '1em', fontSize: 12 },
+  { key: 'name', label: '名称：', type: 'text', align: 'left', color: '', isBold: true, textIndent: '1em', fontSize: 12, isClick: true, isUnderline: true },
   { key: '', label: '', type: 'html', align: 'left', htmlCode: '<span>自定义HTML片断</span>' },
   { key: '', label: '', type: 'button', align: 'right', btns: testBtn }
 ]
@@ -75,7 +78,9 @@ let testBtn = [
 - color：{String}，文字或图标内容颜色
 - fontSize：{Number/String}，文字或图标内容字号
 - isBold：{Boolean}，文字或图标内容是否加粗，true为加粗
-- textIndent：{String}，文字内容首行缩进，如“15px”，“2em”
+- isUnderline：{Boolean}，值为true时文字加下划线（仅当type为'text'时有效）
+- isClick：{Boolean}，值为true时文字可点击（仅当type为'text'时有效）
+- textIndent：{String}，文字内容首行缩进，如“15px”，“2em”（仅当type为'text'时有效）
 - imgW，imgH：{String}，图片宽、高，格式为"数值+单位"，如"20px"（仅当type为'img'时有效）
 - btns：{Array}，按钮设置（仅当type为'button'时有效），示例"[{key: '按钮唯一标识（不可为空）', label: '按钮文字', iconClass: '按钮文字前的icon的类名（可为空）'}]"
 - htmlCode：{String}，HTML片断（仅当type为'html'时有效）
