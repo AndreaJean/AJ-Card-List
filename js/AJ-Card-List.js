@@ -108,6 +108,7 @@ let AjCardList = function (options) {
     getCardStyle (index) {
       let style = this.option.style
       let html = 'background-color:' + style.bgColor + ';' +
+                 'padding:' + style.padding + 'px;' +
                  'border-width:' + style.borderWidth + 'px;' +
                  'border-color:' + style.borderColor + ';'
       if (style.shadowColor.length && style.shadowWidth.length) {
