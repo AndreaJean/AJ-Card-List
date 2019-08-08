@@ -144,7 +144,7 @@ let AjCardList = function (options) {
     addContent (item, index) {
       let html = '<ul class="aj-card-ul">'
       this.rowSet.forEach(row => {
-        html += '<li class="' + row.type + '-line ' + (row.isClick ? 'aj-text-click ' : '') + row.key + '" row-key="' + row.key + '" data-index="' + index + '" style="' + this.getLineStyle(row) + '">'
+        html += '<li class="' + row.type + '-line ' + (row.isClick ? 'aj-text-click ' : '') + row.key + '" row-name="' + row.name + '" row-key="' + row.key + '" data-index="' + index + '" style="' + this.getLineStyle(row) + '">'
         switch (row.type) {
         case 'html':
           html += row.htmlCode
@@ -197,11 +197,13 @@ let AjCardList = function (options) {
     textClickEvent () {
       let vm = this
       let target = this.box.find('.aj-text-click')
-      target.unbind('click').click(function () {
+      target.unbind('click').click(function (e) {
+        e.stopPropagation()
         let btn = $(this)
         let index = btn.attr('data-index')
         let obj = {
           key: btn.attr('row-key'),
+          name: btn.attr('row-name'),
           data: vm.cardData[index]
         }
         vm.option.callback.textClick(obj)
@@ -211,7 +213,8 @@ let AjCardList = function (options) {
     btnClickEvent () {
       let vm = this
       let target = this.box.find('.aj-card-btn')
-      target.unbind('click').click(function () {
+      target.unbind('click').click(function (e) {
+        e.stopPropagation()
         let btn = $(this)
         let index = btn.attr('data-index')
         let obj = {
