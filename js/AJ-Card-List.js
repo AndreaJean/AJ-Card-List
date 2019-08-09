@@ -49,7 +49,7 @@ let AjCardList = function (options) {
       if (index !== -1) {
         this.rowSet.splice(index, 1)
       }
-      this.blockItem.width = this.utils.checkNull(this.blockItem.width) ? this.blockItem.width : '40%'
+      this.blockItem.width = this.utils.checkNull(this.blockItem.width) ? this.blockItem.width : (this.option.layout === 'LR' ? '40%' : '100%')
       this.blockItem.verticleAlign = this.utils.checkNull(this.blockItem.verticleAlign) ? this.blockItem.verticleAlign : 'middle'
     },
     // 生成html
