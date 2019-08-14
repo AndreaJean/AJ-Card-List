@@ -58,6 +58,7 @@
   white-space: nowrap;
   line-height: 28px;
   box-sizing: border-box;
+  vertical-align: middle;
 }
 .aj-card-ul .button-line{
   line-height: 40px;
@@ -79,4 +80,24 @@
 .aj-card-btn-icon {
   margin-right: 2px;
   vertical-align: text-bottom;
+}
+.aj-card-ul>li>label{
+  vertical-align: middle;
+}
+.aj-card-text-img{
+  margin-right:5px;
+  width:20px;
+  height:20px;
+  vertical-align: middle;
+}
+.aj-card-text-icon{
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  vertical-align: middle;
+  text-decoration: none;
+  margin-right:5px;
+}
+.aj-card-text-text{
+  vertical-align: middle;
 }

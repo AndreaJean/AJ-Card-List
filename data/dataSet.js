@@ -7,8 +7,8 @@ let rowSet = [
   // { key: 'photo', label: '', type: 'img', align: 'center', imgW: '40px', imgH: '80px', isBlock: true, width: '40%', verticleAlign: 'middle' },
   { key: 'logo', label: '', type: 'icon', align: 'center', fontSize: 40, isBlock: true, width: '', verticleAlign: 'top', color: 'red' },
   // { key: 'logo', label: '', type: 'icon', align: 'left', fontSize: 40, isBlock: true, width: '50px', verticleAlign: 'top', color: 'red' },
-  { key: 'id', label: 'ID：', type: 'text', align: 'left', color: 'blue', isBold: true, textIndent: '', fontSize: 14 },
-  { key: 'name', label: '名称：', type: 'text', align: 'left', color: '', isBold: false, textIndent: '1em', fontSize: 12, isClick: true, isUnderline: true },
+  { key: 'id', label: 'ID：', type: 'text', align: 'left', color: 'blue', isBold: true, textIndent: '', fontSize: 14, preImg: 'https://wwc.alicdn.com/avatar/getAvatar.do?userNick=&width=50&height=50&type=sns&_input_charset=UTF-8' },
+  { key: 'name', label: '名称：', type: 'text', align: 'left', color: '', isBold: false, textIndent: '1em', fontSize: 12, isClick: true, isUnderline: true, preIcon: 'icon-new-xinwen-copy' },
   // { key: 'link', label: '链接：', type: 'link', src: '', align: 'left', color: '', isBold: true, textIndent: 0, fontSize: 12 },
   { key: '', label: '', type: 'html', align: 'left', htmlCode: '<span>自定义HTML片断</span>' },
   { key: '', label: '', type: 'button', align: 'right', btns: testBtn }

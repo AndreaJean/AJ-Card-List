@@ -159,7 +159,13 @@ let AjCardList = function (options) {
           })
           break
         default:
-          html += '<label>' + row.label + '</label>' + item[row.key]
+          if (row.preImg) {
+            html += '<img class="aj-card-text-img ' + row.key + '" src="' + row.preImg + '" />'
+          }
+          if (row.preIcon) {
+            html += '<i class="icon iconfont aj-card-text-icon ' + row.preIcon + '"></i>'
+          }
+          html += '<label>' + row.label + '</label><span class="aj-card-text-text ' + row.key + '">' + item[row.key] + '</span>'
         }
         html += '</li>'
       })
