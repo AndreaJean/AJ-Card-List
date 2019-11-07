@@ -43,14 +43,14 @@ let AjCardList = function (options) {
       this.rowSet.forEach((row, i) => {
         if (row.isBlock && index === -1) {
           this.blockItem = this.utils.deepCopy(row)
+          this.blockItem.width = this.utils.checkNull(this.blockItem.width) ? this.blockItem.width : (this.option.layout === 'LR' ? '40%' : '100%')
+          this.blockItem.verticleAlign = this.utils.checkNull(this.blockItem.verticleAlign) ? this.blockItem.verticleAlign : 'middle'
           index = i
         }
       })
       if (index !== -1) {
         this.rowSet.splice(index, 1)
       }
-      this.blockItem.width = this.utils.checkNull(this.blockItem.width) ? this.blockItem.width : (this.option.layout === 'LR' ? '40%' : '100%')
-      this.blockItem.verticleAlign = this.utils.checkNull(this.blockItem.verticleAlign) ? this.blockItem.verticleAlign : 'middle'
     },
     // 生成html
     createHtml () {
