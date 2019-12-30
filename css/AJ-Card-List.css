@@ -4,6 +4,12 @@
   width:100%;
   font-size: 12px;
 }
+.aj-no-data-text{
+  position: absolute;
+  top:40%;
+  left:50%;
+  transform: translateY(-50%,-50%);
+}
 .aj-card-table{
   position: relative;
   border-collapse: collapse;
@@ -26,6 +32,9 @@
   border-style:solid;
   border-color:#c0c4cc;
   overflow: hidden;
+}
+.aj-card-cell.empty-cell{
+  visibility: hidden;
 }
 .aj-card-block{
   box-sizing: border-box;

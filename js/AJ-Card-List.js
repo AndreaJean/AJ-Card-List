@@ -12,20 +12,25 @@ let AjCardList = function (options) {
     shadowWidth: 0,
     myInterval: {},
     init (rowSet, cardData) {
+      this.option = this.utils.mergeObjectDeep(this.Opt, options)
+      this.box = $('#' + this.option.id)
+      this.box.empty()
       if (!this.utils.checkNull(cardData)) {
         this.addNoDataText()
         return
       }
-      this.option = this.utils.mergeObjectDeep(this.Opt, options)
       this.scrollBarWidth = this.utils.getScrollWidth()
       this.rowSet = rowSet
       this.cardData = cardData
       this.addRowKey()
       this.separateBlockItem()
-      this.box = $('#' + this.option.id)
       this.box.find('.aj-card-box').remove()
       this.createHtml()
       this.displayListener()
+    },
+    // 无数据样式
+    addNoDataText () {
+      this.box.append('<div class="aj-no-data-text">' + this.option.noDataText + '</div>')
     },
     // 为没有key的列设置key，并检测独立模块
     addRowKey () {
@@ -55,8 +60,11 @@ let AjCardList = function (options) {
     // 生成html
     createHtml () {
       let htmlCard = ''
-      this.cardData.forEach((item, index) => {
-        let td = '<td ' + this.getTdStyle(index) + '>' + this.createCard(item, index) + '</td>'
+      let num = this.cardData.length >= this.option.colNum ? this.cardData.length : this.option.colNum
+      for (let index = 0; index < num; index++) {
+        // console.log(999)
+        let item = this.cardData[index]
+        let td = '<td ' + this.getTdStyle(index) + '>' + (index >= this.cardData.length ? this.createEmptyCard(index) : this.createCard(item, index)) + '</td>'
         switch (index % this.option.colNum) {
         case 0:
           htmlCard += '<tr>' + td
@@ -67,7 +75,7 @@ let AjCardList = function (options) {
         default:
           htmlCard += td
         }
-      })
+      }
       // 预留显示卡片shadow的宽度
       let str = ''
       if (this.option.style.shadowColor.length && this.option.style.shadowWidth.length) {
@@ -101,6 +109,12 @@ let AjCardList = function (options) {
         html += flag ? ('<div class="aj-card-block block left ' + this.blockItem.key + '" ' + blockStyle + '>' + this.addBlockItem(item) + '</div>') : ''
         html += '<div class="aj-card-block' + (flag ? ' right' : '') + '">' + this.addContent(item, index) + '</div>'
       }
+      html += '</div>'
+      return html
+    },
+    // 生成占位卡片（卡片数不足一行之数时）
+    createEmptyCard (index) {
+      let html = '<div class="aj-card-cell empty-cell' + this.option.customCardClass + '" ' + this.getCardStyle(index) + ' data-index="' + index + '">'
       html += '</div>'
       return html
     },
@@ -165,7 +179,7 @@ let AjCardList = function (options) {
           if (row.preIcon) {
             html += '<i class="icon iconfont aj-card-text-icon ' + row.preIcon + '"></i>'
           }
-          html += '<label>' + row.label + '</label><span class="aj-card-text-text ' + row.key + '">' + item[row.key] + '</span>'
+          html += '<label>' + row.label + '</label><span class="aj-card-text-text ' + row.key + '" title="' + item[row.key] + '">' + item[row.key] + '</span>'
         }
         html += '</li>'
       })

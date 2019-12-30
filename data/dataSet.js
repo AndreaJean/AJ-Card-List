@@ -15,18 +15,18 @@ let rowSet = [
 ]
 let cardData = [
   { id: '021917205', logo: 'iconfont icon-download', name: '城西抢劫案', photo: 'https://pic.xiami.net/images/artistlogo/60/13751627012360.jpg?x-oss-process=image/resize,s_370,m_fill/quality,q_80' },
-  { id: '021917206', logo: 'iconfont icon-shanchu', name: '城东盗窃案', photo: 'https://pic.xiami.net/images/artistpic/24/23424/1247039605_405E.jpg?x-oss-process=image/resize,s_370,m_fill/quality,q_80' },
-  { id: '021917207', logo: 'iconfont icon-download', name: '声明式渲染', link: 'https://www.xiami.com/', photo: 'https://pic.xiami.net/images/artistpic/24/23424/1247039645_Qy82.jpg?x-oss-process=image/resize,s_370,m_fill/quality,q_80' },
-  { id: '021917208', logo: 'iconfont icon-xiugai1', name: '条件与循环', link: 'https://www.ifeng.com/', photo: 'https://pic.xiami.net/images/artistlogo/60/13751627012360.jpg?x-oss-process=image/resize,s_370,m_fill/quality,q_80' },
-  { id: '021917209', logo: 'iconfont icon-xiugai1', name: '处理用户输入', link: 'https://github.com/', photo: 'https://pic.xiami.net/images/artistpic/24/23424/1247039605_405E.jpg?x-oss-process=image/resize,s_370,m_fill/quality,q_80' },
-  { id: '021917200', logo: 'iconfont icon-shanchu', name: '用组件构建（应用）', link: 'https://www.baidu.com/', photo: 'https://pic.xiami.net/images/artistpic/24/23424/1247039645_Qy82.jpg?x-oss-process=image/resize,s_370,m_fill/quality,q_80' },
-  { id: '021917201', logo: 'iconfont icon-xiugai1', name: '与自定义元素的关系', link: 'https://www.hao123.com/', photo: 'https://pic.xiami.net/images/artistlogo/60/13751627012360.jpg?x-oss-process=image/resize,s_370,m_fill/quality,q_80' },
-  { id: '021917202', logo: 'iconfont icon-xiugai1', name: '表单控件绑定', link: 'http://www.sohu.com/', photo: 'https://pic.xiami.net/images/artistpic/24/23424/1247039605_405E.jpg?x-oss-process=image/resize,s_370,m_fill/quality,q_80' },
-  { id: '021917203', logo: 'iconfont icon-download', name: 'Render 函数', link: 'https://www.163.com/', photo: 'https://pic.xiami.net/images/artistpic/24/23424/1247039645_Qy82.jpg?x-oss-process=image/resize,s_370,m_fill/quality,q_80' }
+  { id: '021917206', logo: 'iconfont icon-shanchu', name: '城东盗窃案', photo: 'https://pic.xiami.net/images/artistpic/24/23424/1247039605_405E.jpg?x-oss-process=image/resize,s_370,m_fill/quality,q_80' }
+  // { id: '021917207', logo: 'iconfont icon-download', name: '声明式渲染', link: 'https://www.xiami.com/', photo: 'https://pic.xiami.net/images/artistpic/24/23424/1247039645_Qy82.jpg?x-oss-process=image/resize,s_370,m_fill/quality,q_80' },
+  // { id: '021917208', logo: 'iconfont icon-xiugai1', name: '条件与循环', link: 'https://www.ifeng.com/', photo: 'https://pic.xiami.net/images/artistlogo/60/13751627012360.jpg?x-oss-process=image/resize,s_370,m_fill/quality,q_80' },
+  // { id: '021917209', logo: 'iconfont icon-xiugai1', name: '处理用户输入', link: 'https://github.com/', photo: 'https://pic.xiami.net/images/artistpic/24/23424/1247039605_405E.jpg?x-oss-process=image/resize,s_370,m_fill/quality,q_80' },
+  // { id: '021917200', logo: 'iconfont icon-shanchu', name: '用组件构建（应用）', link: 'https://www.baidu.com/', photo: 'https://pic.xiami.net/images/artistpic/24/23424/1247039645_Qy82.jpg?x-oss-process=image/resize,s_370,m_fill/quality,q_80' },
+  // { id: '021917201', logo: 'iconfont icon-xiugai1', name: '与自定义元素的关系', link: 'https://www.hao123.com/', photo: 'https://pic.xiami.net/images/artistlogo/60/13751627012360.jpg?x-oss-process=image/resize,s_370,m_fill/quality,q_80' },
+  // { id: '021917202', logo: 'iconfont icon-xiugai1', name: '表单控件绑定', link: 'http://www.sohu.com/', photo: 'https://pic.xiami.net/images/artistpic/24/23424/1247039605_405E.jpg?x-oss-process=image/resize,s_370,m_fill/quality,q_80' },
+  // { id: '021917203', logo: 'iconfont icon-download', name: 'Render 函数', link: 'https://www.163.com/', photo: 'https://pic.xiami.net/images/artistpic/24/23424/1247039645_Qy82.jpg?x-oss-process=image/resize,s_370,m_fill/quality,q_80' }
 ]
 let opt = {
   id: 'app',
-  colNum: 3, // 一行显示几张卡片
+  colNum: 4, // 一行显示几张卡片
   colPadding: 15, // 卡片间距
   linePadding: 15, // 卡片行间距
   layout: 'TB', // 图片和内容的分页结构，左右LR，上下TB
