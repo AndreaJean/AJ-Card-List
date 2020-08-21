@@ -114,7 +114,7 @@ let AjCardList = function (options) {
     },
     // 生成占位卡片（卡片数不足一行之数时）
     createEmptyCard (index) {
-      let html = '<div class="aj-card-cell empty-cell' + this.option.customCardClass + '" ' + this.getCardStyle(index) + ' data-index="' + index + '">'
+      let html = '<div class="aj-card-cell empty-cell ' + this.option.customCardClass + '" ' + this.getCardStyle(index) + ' data-index="' + index + '">'
       html += '</div>'
       return html
     },
